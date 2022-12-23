@@ -42,10 +42,12 @@ int app::Loop (void)
 	}
 	if (agk::GetRawKeyState(AGK_KEY_RIGHT) || agk::GetRawKeyState(AGK_KEY_D))
 	{
+		agk::SetSpriteFlip(cheems, 0, 0);
 		playerX += moveThisFrame;
 	}
 	if (agk::GetRawKeyState(AGK_KEY_LEFT) || agk::GetRawKeyState(AGK_KEY_A))
 	{
+		agk::SetSpriteFlip(cheems, 1, 0);
 		playerX -= moveThisFrame;
 	}
 
