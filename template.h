@@ -16,6 +16,18 @@
 // Global values for the app
 class app
 {
+	private:
+
+			//Variables para los sprites
+			unsigned int background;
+			unsigned int cheems;
+
+			//Variables de posición
+			float playerX, playerY;
+
+			//Variable para velocidad del jugador
+			const static float speed;
+
 	public:
 
 		// constructor
