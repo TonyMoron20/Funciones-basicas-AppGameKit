@@ -51,6 +51,31 @@ int app::Loop (void)
 		playerX -= moveThisFrame;
 	}
 
+	//variables para posición minima y maxima donde el jugador podra moverse
+	const float minY = agk::GetSpriteHeight(cheems) / 2.0f;
+	const float maxY = agk::GetVirtualHeight() - minY;
+	const float minX = agk::GetSpriteWidth(cheems) / 2.0f;
+	const float maxX = agk::GetVirtualWidth() - minX;
+
+	//Condicion para restringir el movimiento del jugador mas allá de los bordes de la ventana
+	if (playerY < minY)
+	{
+		playerY = minY;
+	}
+	else if (playerY > maxY)
+	{
+		playerY = maxY;
+	}
+	if (playerX < minX)
+	{
+		playerX = minX;
+	}
+	else if (playerX > maxX)
+	{
+		playerX = maxX;
+	}
+
+	//Actualizara la posición del jugador
 	agk::SetSpritePositionByOffset(cheems, playerX, playerY);
 
 	agk::Sync();
