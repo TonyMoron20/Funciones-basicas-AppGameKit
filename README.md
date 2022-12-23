@@ -13,3 +13,7 @@ Ambas funciones retornan como valor flotante el ancho y alto de la ventana donde
 ##agk::SetSpritePositionByOffset()
 
 Con esta funcion se puede actualizar la posición del sprite indicado, toma como eje el centro del sprite.
+
+##agk::GetRawKeyState()
+
+Devuelve un valor si la tecla indicada esta siendo presionada o no.

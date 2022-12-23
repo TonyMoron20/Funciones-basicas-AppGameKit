@@ -29,6 +29,28 @@ void app::Begin(void)
 
 int app::Loop (void)
 {
+	const float moveThisFrame = speed * agk::GetFrameTime();
+
+	//Controles para mover al jugador
+	if (agk::GetRawKeyState(AGK_KEY_UP) || agk::GetRawKeyState(AGK_KEY_W))
+	{
+		playerY -= moveThisFrame;
+	}
+	if (agk::GetRawKeyState(AGK_KEY_DOWN) || agk::GetRawKeyState(AGK_KEY_S))
+	{
+		playerY += moveThisFrame;
+	}
+	if (agk::GetRawKeyState(AGK_KEY_RIGHT) || agk::GetRawKeyState(AGK_KEY_D))
+	{
+		playerX += moveThisFrame;
+	}
+	if (agk::GetRawKeyState(AGK_KEY_LEFT) || agk::GetRawKeyState(AGK_KEY_A))
+	{
+		playerX -= moveThisFrame;
+	}
+
+	agk::SetSpritePositionByOffset(cheems, playerX, playerY);
+
 	agk::Sync();
 
 	return 0; // return 1 to close app
