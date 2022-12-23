@@ -13,6 +13,12 @@ void app::Begin(void)
 	agk::SetSyncRate(60,0);
 	agk::SetScissor(0,0,0,0);
 
+	//Evita que la ventana de ejecución se pueda cambiar de tamaño
+	agk::SetWindowAllowResize(0);
+
+	//Es el titulo que aparece en lo alto del borde de la pantalla de ejecución
+	agk::SetWindowTitle("Cheems Game");
+
 	//Asignando imagenes a las variables tipo unsigned int
 	background = agk::LoadSprite("media/space.jpg");
 	cheems = agk::LoadSprite("media/musculo.png");
@@ -23,7 +29,6 @@ void app::Begin(void)
 
 	//Posicionando al sprite del jugador
 	agk::SetSpritePositionByOffset(cheems, playerX, playerY);
-
 
 }
 

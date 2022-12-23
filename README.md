@@ -19,3 +19,9 @@ Voltea horizontal o verticalmente el sprite indicado.
 
 ### agk::GetSpriteWidth() y agk::GetSpriteHeight()
 Ambas funciones retornan como valor flotante el ancho y alto del sprite indicado.
+
+### agk::SetWindowAllowResize()
+Permite o no que el usuario pueda cambiar el tamaño de la ventana de ejecución.
+
+### agk::SetWindowTitle()
+Se usa para indicar cual sera el título que aparecera en la ventana de ejecución.
