@@ -35,26 +35,38 @@ void app::Begin(void)
 int app::Loop (void)
 {
 	const float moveThisFrame = speed * agk::GetFrameTime();
+	//Variables de movimiento en eje X y Y
+	float moveX = 0.0f;
+	float moveY = 0.0f;
 
 	//Controles para mover al jugador
 	if (agk::GetRawKeyState(AGK_KEY_UP) || agk::GetRawKeyState(AGK_KEY_W))
 	{
-		playerY -= moveThisFrame;
+		moveY -= 1.0f;
 	}
 	if (agk::GetRawKeyState(AGK_KEY_DOWN) || agk::GetRawKeyState(AGK_KEY_S))
 	{
-		playerY += moveThisFrame;
+		moveY += 1.0f;
 	}
 	if (agk::GetRawKeyState(AGK_KEY_RIGHT) || agk::GetRawKeyState(AGK_KEY_D))
 	{
 		agk::SetSpriteFlip(cheems, 0, 0);
-		playerX += moveThisFrame;
+		moveX += 1.0f;
 	}
 	if (agk::GetRawKeyState(AGK_KEY_LEFT) || agk::GetRawKeyState(AGK_KEY_A))
 	{
 		agk::SetSpriteFlip(cheems, 1, 0);
-		playerX -= moveThisFrame;
+		moveX -= 1.0f;
 	}
+
+	//Calculo para conocer la distancia
+	const float moveDistance = agk::Sqrt((moveY * moveY) + (moveX * moveX));
+	if (moveDistance > 0.0f)
+	{
+		playerX += (moveX / moveDistance) * moveThisFrame;
+		playerY += (moveY / moveDistance) * moveThisFrame;
+	}
+
 
 	//variables para posición minima y maxima donde el jugador podra moverse
 	const float minY = agk::GetSpriteHeight(cheems) / 2.0f;

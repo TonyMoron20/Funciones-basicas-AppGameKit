@@ -25,3 +25,6 @@ Permite o no que el usuario pueda cambiar el tamaño de la ventana de ejecución.
 
 ### agk::SetWindowTitle()
 Se usa para indicar cual sera el título que aparecera en la ventana de ejecución.
+
+### agk::Sqrt()
+Calcula la raiz cuadrada del valor indicado.
